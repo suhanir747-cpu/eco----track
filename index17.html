@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Eco Track - Global Warming Tracking Using Digital Technology">
+
+  <title>Eco Track | Digital Climate Intelligence</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Main JavaScript -->
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- SCROLL PROGRESS -->
+  <div id="scrollProgress"></div>
+
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <div class="nav-container">
+
+      <a href="#home" class="logo">
+        <span class="logo-icon">🌍</span>
+        <span>ECO<span class="accent">TRACK</span></span>
+      </a>
+
+      <button id="menuToggle" class="menu-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false">
+        ☰
+      </button>
+
+      <nav id="mainNav" class="main-nav">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#dashboard" class="nav-link">Dashboard</a>
+        <a href="#tracking" class="nav-link">Tracking</a>
+        <a href="#technology" class="nav-link">Technology</a>
+        <a href="#data" class="nav-link">Climate Data</a>
+        <a href="#action" class="nav-link">Take Action</a>
+        <a href="#team" class="nav-link">Our Team</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero section">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          DIGITAL CLIMATE INTELLIGENCE
+        </div>
+
+        <h1>
+          Tracking Our Planet.
+          <span class="accent">Protecting Our Future.</span>
+        </h1>
+
+        <p>
+          Discover how digital technology, satellite
+          monitoring, sensors and data analytics help
+          us understand and track global warming.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#dashboard" class="btn btn-primary">
+            Explore Dashboard →
+          </a>
+
+          <a href="#technology" class="btn btn-outline">
+            Discover Technology
+          </a>
+        </div>
+
+        <div class="hero-stats">
+
+          <div>
+            <h3>24/7</h3>
+            <p>Digital Monitoring</p>
+          </div>
+
+          <div>
+            <h3>Global</h3>
+            <p>Climate Observation</p>
+          </div>
+
+          <div>
+            <h3>Data</h3>
+            <p>Driven Insights</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hero-visual">
+
+        <div class="earth-card">
+          <div class="earth-image">
+            <img
+              src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=900"
+              alt="Planet Earth viewed from space">
+          </div>
+
+          <div class="earth-caption">
+            <span class="live-dot"></span>
+            EARTH CLIMATE OVERVIEW
+          </div>
+
+          <div class="hero-chart">
+            <canvas id="heroChart"></canvas>
+          </div>
+
+          <p class="small-note">
+            Illustrative temperature index
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+    <section id="introduction" class="section">
+
+      <div class="section-heading">
+        <span class="eyebrow">01 / INTRODUCTION</span>
+        <h2>Understanding Global Warming</h2>
+        <p>
+          Global warming refers to the long-term increase
+          in Earth's average surface temperature, mainly
+          caused by greenhouse gas emissions from human
+          activities.
+        </p>
+      </div>
+
+      <div class="intro-grid">
+
+        <div class="glass-card">
+          <div class="card-icon">🌡️</div>
+          <h3>Rising Temperature</h3>
+          <p>
+            Increasing greenhouse gases trap additional
+            heat in the atmosphere and contribute to
+            rising global temperatures.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-icon">🏭</div>
+          <h3>Human Activities</h3>
+          <p>
+            Fossil fuel consumption, industrial activities
+            and deforestation contribute to greenhouse
+            gas emissions.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-icon">🌊</div>
+          <h3>Environmental Impact</h3>
+          <p>
+            Global warming affects oceans, glaciers,
+            ecosystems, weather patterns and biodiversity.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="section dashboard-section">
+
+      <div class="section-heading">
+        <span class="eyebrow">02 / CLIMATE DASHBOARD</span>
+        <h2>Planet Monitoring Dashboard</h2>
+        <p>
+          Explore example climate indicators presented
+          through a digital monitoring interface.
+        </p>
+      </div>
+
+      <div class="dashboard-toolbar">
+        <span class="status-label">
+          <span class="live-dot"></span>
+          DEMONSTRATION DASHBOARD
+        </span>
+
+        <button id="refreshDashboard" class="btn btn-outline">
+          ↻ Refresh display
+        </button>
+      </div>
+
+      <div class="metrics-grid">
+
+        <article class="metric-card">
+          <span class="metric-icon">🌡️</span>
+          <p>Temperature Index</p>
+          <h3>1.45</h3>
+          <span class="metric-caption">
+            Illustrative value
+          </span>
+        </article>
+
+        <article class="metric-card">
+          <span class="metric-icon">🌫️</span>
+          <p>CO₂ Indicator</p>
+          <h3>420+</h3>
+          <span class="metric-caption">
+            Example ppm display
+          </span>
+        </article>
+
+        <article class="metric-card">
+          <span class="metric-icon">🌊</span>
+          <p>Sea Level</p>
+          <h3>Rising</h3>
+          <span class="metric-caption">
+            Long-term observation
+          </span>
+        </article>
+
+        <article class="metric-card">
+          <span class="metric-icon">🌳</span>
+          <p>Forest Monitoring</p>
+          <h3>Active</h3>
+          <span class="metric-caption">
+            Remote sensing concept
+          </span>
+        </article>
+
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-header">
+          <div>
+            <h3>Temperature Trend</h3>
+            <p>Illustrative example data</p>
+          </div>
+
+          <span class="chart-tag">2016–2025</span>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="temperatureChart"></canvas>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- TRACKING -->
+    <section id="tracking" class="section">
+
+      <div class="section-heading">
+        <span class="eyebrow">03 / DIGITAL TRACKING</span>
+        <h2>How Do We Track Global Warming?</h2>
+        <p>
+          Digital tools help researchers collect,
+          process and analyse environmental information.
+        </p>
+      </div>
+
+      <div class="tracking-grid">
+
+        <article class="track-card">
+          <div class="card-icon">🛰️</div>
+          <h3>Satellite Monitoring</h3>
+          <p>
+            Satellites observe Earth's surface, clouds,
+            vegetation, ice cover and atmospheric
+            conditions.
+          </p>
+          <span class="card-label">REMOTE SENSING</span>
+        </article>
+
+        <article class="track-card">
+          <div class="card-icon">📡</div>
+          <h3>Sensor Networks</h3>
+          <p>
+            Environmental sensors collect information
+            about temperature, humidity, air quality
+            and other conditions.
+          </p>
+          <span class="card-label">REAL-TIME SENSING</span>
+        </article>
+
+        <article class="track-card">
+          <div class="card-icon">🗺️</div>
+          <h3>GIS Mapping</h3>
+          <p>
+            Geographic Information Systems help display
+            climate information on maps and identify
+            environmental changes.
+          </p>
+          <span class="card-label">GEOGRAPHIC DATA</span>
+        </article>
+
+        <article class="track-card">
+          <div class="card-icon">🤖</div>
+          <h3>Artificial Intelligence</h3>
+          <p>
+            AI and machine learning can analyse large
+            datasets, recognise patterns and support
+            climate research.
+          </p>
+          <span class="card-label">DATA INTELLIGENCE</span>
+        </article>
+
+      </div>
+
+      <div class="chart-card detail-chart-card">
+
+        <div class="chart-header">
+          <div>
+            <h3>Temperature Data Explorer</h3>
+            <p>Explore the illustrative dataset</p>
+          </div>
+
+          <select id="temperatureRange"
+            aria-label="Choose chart range">
+            <option value="all">All Years</option>
+            <option value="recent">Recent 5 Years</option>
+          </select>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="detailTemperatureChart"></canvas>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TECHNOLOGY -->
+    <section id="technology" class="section technology-section">
+
+      <div class="section-heading">
+        <span class="eyebrow">04 / DIGITAL TECHNOLOGY</span>
+        <h2>Technology Behind Climate Tracking</h2>
+        <p>
+          Modern technologies transform environmental
+          observations into meaningful climate insights.
+        </p>
+      </div>
+
+      <div class="technology-grid">
+
+        <article class="tech-card">
+          <div class="tech-icon">🛰️</div>
+          <h3>Remote Sensing</h3>
+          <p>
+            Collects information about Earth without
+            direct physical contact using satellites
+            and other instruments.
+          </p>
+        </article>
+
+        <article class="tech-card">
+          <div class="tech-icon">🌐</div>
+          <h3>Internet of Things</h3>
+          <p>
+            Connected sensors transmit environmental
+            observations to digital platforms.
+          </p>
+        </article>
+
+        <article class="tech-card">
+          <div class="tech-icon">☁️</div>
+          <h3>Cloud Computing</h3>
+          <p>
+            Supports the storage, processing and sharing
+            of large environmental datasets.
+          </p>
+        </article>
+
+        <article class="tech-card">
+          <div class="tech-icon">📊</div>
+          <h3>Big Data Analytics</h3>
+          <p>
+            Helps researchers study large datasets
+            and discover long-term environmental patterns.
+          </p>
+        </article>
+
+        <article class="tech-card">
+          <div class="tech-icon">🧠</div>
+          <h3>Machine Learning</h3>
+          <p>
+            Analyses historical observations to identify
+            patterns and support climate modelling.
+          </p>
+        </article>
+
+        <article class="tech-card">
+          <div class="tech-icon">📍</div>
+          <h3>GPS Technology</h3>
+          <p>
+            Provides location information useful for
+            environmental surveys and field monitoring.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CLIMATE DATA TABLE -->
+    <section id="data" class="section data-section">
+
+      <div class="section-heading">
+        <span class="eyebrow">05 / CLIMATE DATA</span>
+        <h2>Environmental Data Explorer</h2>
+        <p>
+          Explore the types of environmental indicators
+          that digital monitoring systems can observe.
+        </p>
+      </div>
+
+      <div class="data-toolbar">
+
+        <input
+          type="search"
+          id="dataSearch"
+          placeholder="Search climate indicators..."
+          aria-label="Search climate indicators">
+
+        <button id="downloadCsv" class="btn btn-primary">
+          ↓ Download CSV
+        </button>
+
+      </div>
+
+      <div class="table-wrapper">
+
+        <table id="climateTable">
+
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>What is Observed</th>
+              <th>Technology</th>
+              <th>Display Type</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Temperature</td>
+              <td>Long-term temperature variation</td>
+              <td>Weather stations / Satellites</td>
+              <td>Trend Chart</td>
+            </tr>
+
+            <tr>
+              <td>CO₂</td>
+              <td>Atmospheric concentration</td>
+              <td>Gas Monitoring Instruments</td>
+              <td>Time Series</td>
+            </tr>
+
+            <tr>
+              <td>Sea Level</td>
+              <td>Ocean surface height</td>
+              <td>Satellite Altimetry / Tide Gauges</td>
+              <td>Trend Map</td>
+            </tr>
+
+            <tr>
+              <td>Forest Cover</td>
+              <td>Land-cover change</td>
+              <td>Remote Sensing / GIS</td>
+              <td>Image Comparison</td>
+            </tr>
+
+            <tr>
+              <td>Ice Cover</td>
+              <td>Glacier and polar ice extent</td>
+              <td>Satellite Imagery</td>
+              <td>Area Comparison</td>
+            </tr>
+
+            <tr>
+              <td>Air Quality</td>
+              <td>Selected atmospheric pollutants</td>
+              <td>Air Quality Sensors</td>
+              <td>Indicator Panel</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+        <p id="emptyState" hidden>
+          No matching climate indicators found.
+        </p>
+
+      </div>
+
+      <p id="tableCount" class="table-count">
+        6 indicators
+      </p>
+
+    </section>
+
+
+    <!-- IMPACT -->
+    <section id="impact" class="section">
+
+      <div class="section-heading">
+        <span class="eyebrow">06 / ENVIRONMENTAL IMPACT</span>
+        <h2>Effects of Global Warming</h2>
+        <p>
+          Climate change influences natural systems,
+          communities and ecosystems around the world.
+        </p>
+      </div>
+
+      <div class="impact-grid">
+
+        <article class="photo-card">
+          <img
+            src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=800"
+            alt="Forest landscape">
+
+          <div class="photo-caption">
+            <h3>Forest Ecosystems</h3>
+            <p>
+              Changes in temperature and rainfall
+              can affect forests and biodiversity.
+            </p>
+          </div>
+        </article>
+
+        <article class="photo-card">
+          <img
+            src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800"
+            alt="Ocean waves">
+
+          <div class="photo-caption">
+            <h3>Rising Sea Levels</h3>
+            <p>
+              Ocean warming and melting land ice
+              contribute to rising sea levels.
+            </p>
+          </div>
+        </article>
+
+        <article class="photo-card">
+          <img
+            src="https://images.unsplash.com/photo-1511497584788-876760111969?w=800"
+            alt="Natural landscape">
+
+          <div class="photo-caption">
+            <h3>Changing Ecosystems</h3>
+            <p>
+              Climate conditions can influence
+              habitats and species distribution.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- TAKE ACTION -->
+    <section id="action" class="section action-section">
+
+      <div class="section-heading">
+        <span class="eyebrow">07 / TAKE ACTION</span>
+        <h2>Be Part of the Climate Solution</h2>
+        <p>
+          Individual and collective actions can help
+          reduce environmental impact.
+        </p>
+      </div>
+
+      <div class="action-grid">
+
+        <article class="glass-card">
+          <div class="card-icon">🚲</div>
+          <h3>Choose Sustainable Transport</h3>
+          <p>
+            Walk, cycle or use public transport
+            whenever practical.
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <div class="card-icon">💡</div>
+          <h3>Save Energy</h3>
+          <p>
+            Switch off unused electrical devices
+            and use energy efficiently.
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <div class="card-icon">🌱</div>
+          <h3>Plant and Protect Trees</h3>
+          <p>
+            Support green spaces and protect
+            existing forests.
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <div class="card-icon">♻️</div>
+          <h3>Reduce Waste</h3>
+          <p>
+            Reuse materials, recycle responsibly
+            and avoid unnecessary waste.
+          </p>
+        </article>
+
+      </div>
+
+
+      <!-- INTERACTIVE ACTIVITY -->
+      <div class="calculator-card">
+
+        <div class="calculator-content">
+
+          <span class="eyebrow">
+            INTERACTIVE DEMONSTRATION
+          </span>
+
+          <h3>Explore an Activity Score</h3>
+
+          <p>
+            Adjust this demonstration slider to see
+            how the example score changes. This is
+            not a scientifically calculated carbon
+            footprint.
+          </p>
+
+          <label for="activityRange">
+            Activity setting:
+          </label>
+
+          <input
+            type="range"
+            id="activityRange"
+            min="0"
+            max="10"
+            value="5">
+
+          <p id="activityValue">5 / 10</p>
+
+          <div class="meter-background">
+            <div id="footprintMeter" class="meter-fill"></div>
+          </div>
+
+          <h3 id="footprintScore">50</h3>
+
+          <p id="footprintMessage">
+            A mid-range example setting
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TEAM -->
+    <section id="team" class="section team-section">
+
+      <div class="section-heading">
+        <span class="eyebrow">08 / OUR TEAM</span>
+        <h2>Meet the Project Team</h2>
+        <p>
+          This project explores how digital technology
+          can support environmental awareness and
+          global warming monitoring.
+        </p>
+      </div>
+
+      <div class="team-grid">
+
+        <article class="team-card">
+          <div class="team-avatar">S</div>
+          <h3>Suhani Rout</h3>
+          <p>Project Team Member</p>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar">L</div>
+          <h3>Lokesh Singh</h3>
+          <p>Project Team Member</p>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar">R</div>
+          <h3>Rakshita Sinha</h3>
+          <p>Project Team Member</p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONCLUSION -->
+    <section id="conclusion" class="section conclusion-section">
+
+      <div class="conclusion-card">
+
+        <span class="eyebrow">09 / CONCLUSION</span>
+
+        <h2>Technology for a Sustainable Future</h2>
+
+        <p>
+          Digital technology provides powerful tools
+          for observing environmental changes,
+          analysing climate information and improving
+          awareness. By combining satellite monitoring,
+          sensors, artificial intelligence and data
+          analytics, we can better understand global
+          warming and support informed environmental
+          decisions.
+        </p>
+
+        <a href="#home" class="btn btn-primary">
+          Back to Top ↑
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-content">
+
+      <a href="#home" class="logo">
+        🌍 ECO<span class="accent">TRACK</span>
+      </a>
+
+      <p>
+        Global Warming Tracking Using Digital Technology
+      </p>
+
+      <p class="footer-small">
+        Educational project created to promote
+        climate awareness and digital innovation.
+      </p>
+
+      <p class="copyright">
+        © <span id="year"></span> Eco Track.
+        All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- BACK TO TOP -->
+  <button
+    id="backToTop"
+    class="back-to-top"
+    aria-label="Back to top">
+    ↑
+  </button>
+
+
+  <!-- TOAST NOTIFICATION -->
+  <div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite">
+  </div>
+
+</body>
+</html>
